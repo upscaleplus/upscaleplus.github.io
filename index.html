@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VideoUpscale — Coming Soon</title>
+  <meta name="description" content="VideoUpscale: AI-powered video upscaling coming soon. Join the waitlist for early access, beta invites, and special pricing." />
+  <meta property="og:title" content="VideoUpscale — Coming Soon" />
+  <meta property="og:description" content="AI-powered video upscaling coming soon. Upscale to 4K, reduce noise, and preserve details." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <!-- Simple SVG logo -->
+        <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <rect x="2" y="4" width="16" height="12" rx="2" fill="#1e88e5"></rect>
+          <polygon points="18,8 22,10 22,18 18,16" fill="#1976d2"></polygon>
+        </svg>
+        <span class="brand-name">VideoUpscale</span>
+      </div>
+      <nav aria-label="Main navigation" class="nav">
+        <a href="#features">Features</a>
+        <a href="#waitlist">Join Waitlist</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1>VideoUpscale — Coming Soon</h1>
+          <p class="lead">Bring old footage back to life. AI-powered upscaling, denoising, and frame refinement — fast, private, and easy to use.</p>
+          <ul class="highlights" aria-hidden="true">
+            <li>Upscale to 4K & beyond</li>
+            <li>Reduce noise & improve clarity</li>
+            <li>Batch processing & integrations</li>
+          </ul>
+
+          <form id="waitlistForm" class="waitlist" aria-labelledby="waitlist-heading" novalidate>
+            <h2 id="waitlist-heading" class="sr-only">Join the waitlist</h2>
+            <label for="email" class="visually-hidden">Email address</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            <button type="submit" class="btn-primary">Join the waitlist</button>
+            <p class="note">We'll only use your email for updates. No spam.</p>
+            <div id="formMessage" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+
+        <div class="hero-art">
+          <div class="art-card" aria-hidden="true">
+            <div class="art-preview">Preview</div>
+            <div class="art-caption">Before → After (example)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section container">
+      <h2>What VideoUpscale will offer</h2>
+      <div class="features-grid">
+        <article>
+          <h3>AI Upscaling</h3>
+          <p>State-of-the-art models upscale resolution while preserving fine detail and texture.</p>
+        </article>
+        <article>
+          <h3>Noise Reduction</h3>
+          <p>Smart denoising reduces grain and compression artifacts without softening the image.</p>
+        </article>
+        <article>
+          <h3>Frame Refinement</h3>
+          <p>Improve temporal stability and reduce flicker with frame-aware processing.</p>
+        </article>
+        <article>
+          <h3>Batch & Integrations</h3>
+          <p>Process many files at once and connect with editors, cloud storage, or local GPU workflows.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="faq" class="section container">
+      <h2>FAQ</h2>
+      <details>
+        <summary>When will it be available?</summary>
+        <p>We’re currently in development. Join the waitlist for early access and beta announcements.</p>
+      </details>
+
+      <details>
+        <summary>Is there a free trial or beta?</summary>
+        <p>Yes — waitlist members will be first invited to the beta and offered trial credits.</p>
+      </details>
+
+      <details>
+        <summary>How will privacy be handled?</summary>
+        <p>We plan to offer both cloud and on-prem/on-device options; more details will be provided as we get closer to launch.</p>
+      </details>
+    </section>
+
+    <section class="section container contact">
+      <h2>Contact</h2>
+      <p>Have questions or partnership ideas? Email: <a href="mailto:hello@videoupscale.example">hello@videoupscale.example</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> VideoUpscale — All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
