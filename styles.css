@@ -66,7 +66,6 @@ h1{margin:.2rem 0 0;font-size:2rem}
 
 .site-footer{padding:1.25rem 0;color:var(--muted);text-align:center;border-top:1px solid rgba(255,255,255,0.02);margin-top:2rem}
 
-/* Responsive tweaks */
 @media (max-width:720px){
   .hero-inner{flex-direction:column-reverse}
   .hero-art{width:100%}
