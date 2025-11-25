@@ -1,117 +1,553 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>VideoUpscale — Coming Soon</title>
-  <meta name="description" content="VideoUpscale: AI-powered video upscaling coming soon. Join the waitlist for early access, beta invites, and special pricing." />
-  <meta property="og:title" content="VideoUpscale — Coming Soon" />
-  <meta property="og:description" content="AI-powered video upscaling coming soon. Upscale to 4K, reduce noise, and preserve details." />
-  <meta property="og:type" content="website" />
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Enhancer+ | Next Gen AI Upscaling</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* New Color Scheme: Deep Purple & Neon Violet */
+            --primary: #8b5cf6;       /* Violet-500 */
+            --primary-glow: #7c3aed;  /* Violet-600 */
+            --accent: #d8b4fe;        /* Lavender accent */
+            --bg-dark: #05030a;
+            
+            --glass-bg: rgba(20, 10, 30, 0.4);
+            --glass-border: rgba(139, 92, 246, 0.2);
+            --glass-highlight: rgba(216, 180, 254, 0.1);
+            
+            --text-main: #ffffff;
+            --text-muted: #a78bfa;    /* Muted purple text */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- Animated Background --- */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(88, 28, 135, 0.4), transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(124, 58, 237, 0.2), transparent 40%);
+            z-index: -2;
+        }
+
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
+            animation: float 15s infinite ease-in-out;
+            opacity: 0.5;
+        }
+
+        .orb-1 {
+            top: -20%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: #4c1d95;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            bottom: -20%;
+            right: -10%;
+            width: 700px;
+            height: 700px;
+            background: #2e1065;
+            animation-delay: -5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, 50px) scale(1.1); }
+        }
+
+        /* --- Glassmorphism Components --- */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-top: 1px solid var(--glass-highlight);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            border-radius: 24px;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+        }
+
+        .logo i { color: var(--accent); }
+
+        .nav-btn {
+            padding: 10px 24px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-glow));
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
+            transition: all 0.3s;
+        }
+
+        .nav-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(124, 58, 237, 0.8);
+        }
+
+        /* --- Hero Section --- */
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 140px 20px 60px;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 5rem;
+            line-height: 1;
+            margin-bottom: 25px;
+            background: linear-gradient(to bottom, #fff, #d8b4fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeUp 0.8s ease-out;
+        }
+
+        h1 span {
+            display: block;
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--accent);
+            -webkit-text-fill-color: var(--accent);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin-bottom: 40px;
+            animation: fadeUp 1s ease-out;
+        }
+
+        .btn-main {
+            padding: 18px 45px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            background: white;
+            color: var(--bg-dark);
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+            animation: fadeUp 1.2s ease-out;
+            text-decoration: none;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(139, 92, 246, 0.4);
+            background: var(--accent);
+        }
+
+        /* --- Comparison Slider (Refined) --- */
+        .comparison-wrapper {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto 100px;
+            padding: 20px;
+        }
+
+        .slider-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+        }
+
+        .slider-frame {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+            cursor: col-resize;
+        }
+
+        .img-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Using a cyberpunk city image which works great for upscaling demos.
+           Before: Blur + low contrast + slight pixelation simulation
+        */
+        .img-before {
+            background-image: url('https://images.unsplash.com/photo-1555680202-c86f0e12f086?q=80&w=2070&auto=format&fit=crop');
+            filter: blur(3px) brightness(0.8);
+            z-index: 1;
+        }
+
+        .img-after {
+            background-image: url('https://images.unsplash.com/photo-1555680202-c86f0e12f086?q=80&w=2070&auto=format&fit=crop');
+            filter: contrast(1.2) saturate(1.3) sharpen(2px); /* Sharpen is not real CSS, simulated by contrast */
+            width: 50%;
+            z-index: 2;
+            border-right: 2px solid var(--accent);
+        }
+
+        .slider-knob {
+            position: absolute;
+            top: 50%;
+            right: -20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            box-shadow: 0 0 20px white;
+            transform: translateY(-50%);
+        }
+
+        .badge-label {
+            position: absolute;
+            bottom: 20px;
+            padding: 8px 16px;
+            background: rgba(0,0,0,0.7);
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            backdrop-filter: blur(4px);
+            pointer-events: none;
+            user-select: none;
+        }
+        .lbl-before { right: 20px; color: #aaa; }
+        .lbl-after { left: 20px; color: var(--accent); z-index: 3; }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--glass-border);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Warning Modal --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-box {
+            background: #1a1528;
+            border: 1px solid #ff4444;
+            width: 90%;
+            max-width: 450px;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(255, 68, 68, 0.2);
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: scale(1);
+        }
+
+        .modal-icon {
+            font-size: 3rem;
+            color: #ff4444;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .modal-text {
+            color: #aaa;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .modal-btn {
+            background: #ff4444;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            .comparison-wrapper { padding: 10px; }
+        }
+    </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">
-        <!-- Simple SVG logo -->
-        <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <rect x="2" y="4" width="16" height="12" rx="2" fill="#1e88e5"></rect>
-          <polygon points="18,8 22,10 22,18 18,16" fill="#1976d2"></polygon>
-        </svg>
-        <span class="brand-name">VideoUpscale</span>
-      </div>
-      <nav aria-label="Main navigation" class="nav">
-        <a href="#features">Features</a>
-        <a href="#waitlist">Join Waitlist</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-    </div>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <h1>VideoUpscale — Coming Soon</h1>
-          <p class="lead">Bring old footage back to life. AI-powered upscaling, denoising, and frame refinement — fast, private, and easy to use.</p>
-          <ul class="highlights" aria-hidden="true">
-            <li>Upscale to 4K & beyond</li>
-            <li>Reduce noise & improve clarity</li>
-            <li>Batch processing & integrations</li>
-          </ul>
+    <div class="bg-gradient"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
 
-          <form id="waitlistForm" class="waitlist" aria-labelledby="waitlist-heading" novalidate>
-            <h2 id="waitlist-heading" class="sr-only">Join the waitlist</h2>
-            <label for="email" class="visually-hidden">Email address</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" required />
-            <button type="submit" class="btn-primary">Join the waitlist</button>
-            <p class="note">We'll only use your email for updates. No spam.</p>
-            <div id="formMessage" role="status" aria-live="polite"></div>
-          </form>
+    <nav class="glass">
+        <div class="logo">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            Video Enhancer+
         </div>
+        <!-- Simple Download button in Nav -->
+        <a href="#" onclick="handleDownload(event)" class="nav-btn">Download</a>
+    </nav>
 
-        <div class="hero-art">
-          <div class="art-card" aria-hidden="true">
-            <div class="art-preview">Preview</div>
-            <div class="art-caption">Before → After (example)</div>
-          </div>
+    <header>
+        <h1>
+            <span>Next-Gen AI</span>
+            Video Enhancer+
+        </h1>
+        <p class="subtitle">Turn blurry gameplay clips into crisp 4K masterpieces. Our deep-learning algorithm reconstructs details that were never there.</p>
+        
+        <a href="#" class="btn-main" onclick="handleDownload(event)">
+            <i class="fa-brands fa-windows"></i> Download Beta
+        </a>
+        <div style="margin-top: 15px; font-size: 0.8rem; color: var(--text-muted); opacity: 0.7;">
+            v2.1.0 | Windows 10/11 | 64-bit
         </div>
-      </div>
-    </section>
+    </header>
 
-    <section id="features" class="section container">
-      <h2>What VideoUpscale will offer</h2>
-      <div class="features-grid">
-        <article>
-          <h3>AI Upscaling</h3>
-          <p>State-of-the-art models upscale resolution while preserving fine detail and texture.</p>
-        </article>
-        <article>
-          <h3>Noise Reduction</h3>
-          <p>Smart denoising reduces grain and compression artifacts without softening the image.</p>
-        </article>
-        <article>
-          <h3>Frame Refinement</h3>
-          <p>Improve temporal stability and reduce flicker with frame-aware processing.</p>
-        </article>
-        <article>
-          <h3>Batch & Integrations</h3>
-          <p>Process many files at once and connect with editors, cloud storage, or local GPU workflows.</p>
-        </article>
-      </div>
-    </section>
+    <!-- Refined Demo Slider -->
+    <div class="comparison-wrapper">
+        <div class="slider-title">Real-time Comparison</div>
+        <div class="slider-frame" id="slider">
+            <!-- Background (Before) -->
+            <div class="img-layer img-before"></div>
+            <div class="badge-label lbl-before">Original (720p)</div>
 
-    <section id="faq" class="section container">
-      <h2>FAQ</h2>
-      <details>
-        <summary>When will it be available?</summary>
-        <p>We’re currently in development. Join the waitlist for early access and beta announcements.</p>
-      </details>
-
-      <details>
-        <summary>Is there a free trial or beta?</summary>
-        <p>Yes — waitlist members will be first invited to the beta and offered trial credits.</p>
-      </details>
-
-      <details>
-        <summary>How will privacy be handled?</summary>
-        <p>We plan to offer both cloud and on-prem/on-device options; more details will be provided as we get closer to launch.</p>
-      </details>
-    </section>
-
-    <section class="section container contact">
-      <h2>Contact</h2>
-      <p>Have questions or partnership ideas? Email: <a href="mailto:hello@videoupscale.com">hello@videoupscale.com</a></p>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="year"></span> VideoUpscale — All rights reserved.</p>
+            <!-- Foreground (After) -->
+            <div class="img-layer img-after" id="img-after">
+                <div class="badge-label lbl-after">Enhanced+ (4K)</div>
+                <div class="slider-knob">
+                    <i class="fa-solid fa-arrows-left-right"></i>
+                </div>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 15px; color: var(--text-muted); font-size: 0.9rem;">
+            *Simulated result based on average performance on RTX 3060.
+        </p>
     </div>
-  </footer>
 
-  <script src="script.js"></script>
+    <!-- Security Warning Modal -->
+    <div class="modal-overlay" id="virusModal">
+        <div class="modal-box">
+            <div class="modal-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3 class="modal-title">Action Required</h3>
+            <p class="modal-text">
+                Video Enhancer+ uses advanced kernel-level drivers for GPU acceleration. This may trigger a <strong>False Positive</strong> on some antivirus software.
+                <br><br>
+                Please <strong>temporarily disable "Real-time protection"</strong> or "Virus & Threat protection" to ensure the installation completes successfully.
+            </p>
+            <button class="modal-btn" onclick="closeModal()">I Understand, Continue</button>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Video Enhancer+ Inc. All rights reserved.
+    </footer>
+
+    <script>
+        // --- Download & Modal Logic (updated to download the real UpscaleBETA.bat from the repo/main branch) ---
+        function handleDownload(e) {
+            e.preventDefault();
+
+            // OPTION A (recommended if you publish the site with GitHub Pages):
+            // - Place UpscaleBETA.bat at the root of your published site (repository root).
+            // - Use the relative path below so the download is same-origin and will respect the 'download' behavior in browsers.
+            const rawUrl = '/UpscaleBETA.bat';
+
+            // OPTION B (if you prefer to point directly to the raw GitHub file):
+            // Replace OWNER and REPO with your GitHub username/org and repository name if you use this option.
+            // const rawUrl = 'https://raw.githubusercontent.com/OWNER/REPO/main/UpscaleBETA.bat';
+
+            // We'll try to fetch the file (CORS on raw.githubusercontent.com works) and force a download.
+            fetch(rawUrl)
+                .then(response => {
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return response.blob();
+                })
+                .then(blob => {
+                    const downloadName = 'UpscaleBETA.bat';
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = downloadName;
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                    URL.revokeObjectURL(url);
+                })
+                .catch(err => {
+                    // Fallback: navigate directly (this may open the file in-browser for some file types
+                    // but usually .bat will download or the user can right-click → Save As)
+                    console.warn('Fetch failed, falling back to direct navigation:', err);
+                    window.location.href = rawUrl;
+                });
+
+            // Show the modal shortly after download begins (keeps previous UX).
+            setTimeout(() => {
+                document.getElementById('virusModal').classList.add('active');
+            }, 800);
+        }
+
+        function closeModal() {
+            document.getElementById('virusModal').classList.remove('active');
+        }
+
+        // --- Slider Logic (Draggable) ---
+        const slider = document.getElementById('slider');
+        const afterImg = document.getElementById('img-after');
+        let active = false;
+
+        // Mouse Events
+        slider.addEventListener('mousedown', () => active = true);
+        document.body.addEventListener('mouseup', () => active = false);
+        document.body.addEventListener('mouseleave', () => active = false);
+        
+        slider.addEventListener('mousemove', (e) => {
+            if (!active) return;
+            let x = e.pageX;
+            x -= slider.getBoundingClientRect().left;
+            slideIt(x);
+        });
+
+        // Touch Events
+        slider.addEventListener('touchstart', () => active = true);
+        document.body.addEventListener('touchend', () => active = false);
+        slider.addEventListener('touchmove', (e) => {
+            if (!active) return;
+            let x = e.touches[0].pageX;
+            x -= slider.getBoundingClientRect().left;
+            slideIt(x);
+        });
+
+        function slideIt(x) {
+            let transform = Math.max(0, (Math.min(x, slider.offsetWidth)));
+            afterImg.style.width = transform + "px";
+        }
+
+        // Click to jump
+        slider.addEventListener('click', (e) => {
+            let x = e.pageX - slider.getBoundingClientRect().left;
+            slideIt(x);
+        });
+    </script>
 </body>
 </html>
